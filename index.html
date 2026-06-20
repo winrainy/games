@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Minecraft Web · 网页版我的世界</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+
+    <div id="crosshair"></div>
+
+    <div id="hud-info"></div>
+    <div id="status"></div>
+
+    <div id="hotbar"></div>
+
+    <div id="overlay">
+      <div class="panel">
+        <h1>网页版《我的世界》</h1>
+        <p class="sub">Minecraft Web — 基于 Three.js 的体素世界</p>
+        <div class="controls">
+          <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</div>
+          <div><kbd>鼠标</kbd> 视角</div>
+          <div><kbd>空格</kbd> 跳跃 / 飞行上升</div>
+          <div><kbd>Shift</kbd> 飞行下降</div>
+          <div><kbd>左键</kbd> 破坏方块</div>
+          <div><kbd>右键</kbd> 放置方块</div>
+          <div><kbd>1</kbd>–<kbd>9</kbd> / <kbd>滚轮</kbd> 选择方块</div>
+          <div><kbd>F</kbd> 切换飞行模式</div>
+        </div>
+        <button id="start">点击进入游戏</button>
+        <p class="hint">进入后按 <kbd>Esc</kbd> 可释放鼠标</p>
+      </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+    <script>
+      // The whole overlay is clickable (canvas requests pointer lock on click),
+      // but keep the explicit button working too.
+      document.getElementById("start").addEventListener("click", () => {
+        document.getElementById("game").requestPointerLock();
+      });
+    </script>
+  </body>
+</html>
